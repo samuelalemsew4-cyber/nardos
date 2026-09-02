@@ -9,6 +9,7 @@ const AdminProducts = () => {
   const [showForm, setShowForm] = useState(false);
   const [editingProductId, setEditingProductId] = useState(null);
   const [imageFile, setImageFile] = useState(null);
+  const [savingProduct, setSavingProduct] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     brand: '',
@@ -40,7 +41,13 @@ const AdminProducts = () => {
 
   const handleAddProduct = async (e) => {
     e.preventDefault();
+    if (!formData.name.trim() || !formData.brand.trim() || !formData.description.trim() || Number(formData.price) <= 0) {
+      alert('Please enter a valid product name, brand, description, and price.');
+      return;
+    }
+
     try {
+      setSavingProduct(true);
       const token = localStorage.getItem('token');
       const productData = new FormData();
       Object.entries(formData).forEach(([key, value]) => {
@@ -51,14 +58,12 @@ const AdminProducts = () => {
       const response = editingProductId
         ? await api.put(`/products/${editingProductId}`, productData, {
             headers: {
-              Authorization: `Bearer ${token}`,
-              'Content-Type': 'multipart/form-data'
+                Authorization: `Bearer ${token}`
             }
           })
         : await api.post('/products', productData, {
             headers: {
-              Authorization: `Bearer ${token}`,
-              'Content-Type': 'multipart/form-data'
+                Authorization: `Bearer ${token}`
             }
           });
 
@@ -84,6 +89,8 @@ const AdminProducts = () => {
       setShowForm(false);
     } catch (err) {
       alert(err.response?.data?.message || 'Failed to save product');
+    } finally {
+      setSavingProduct(false);
     }
   };
 
@@ -140,6 +147,18 @@ const AdminProducts = () => {
             onClick={() => {
               setShowForm(!showForm);
               setEditingProductId(null);
+              if (!showForm) {
+                setFormData({
+                  name: '',
+                  brand: '',
+                  category: 'Men',
+                  description: '',
+                  price: '',
+                  stock: '',
+                  image: ''
+                });
+                setImageFile(null);
+              }
             }}
           >
             {showForm ? '✕ Cancel' : '➕ Add Product'}
@@ -202,7 +221,7 @@ const AdminProducts = () => {
             required
           />
           <button type="submit" className="submit-btn">
-            {editingProductId ? 'Update Product' : 'Add Product'}
+            {savingProduct ? 'Saving...' : editingProductId ? 'Update Product' : 'Add Product'}
           </button>
         </form>
       )}
