@@ -143,11 +143,13 @@ const AdminProducts = () => {
             className="search-input"
           />
           <button
+            type="button"
             className="add-product-btn"
             onClick={() => {
-              setShowForm(!showForm);
-              setEditingProductId(null);
-              if (!showForm) {
+              if (showForm) {
+                setShowForm(false);
+                setEditingProductId(null);
+              } else {
                 setFormData({
                   name: '',
                   brand: '',
@@ -158,6 +160,8 @@ const AdminProducts = () => {
                   image: ''
                 });
                 setImageFile(null);
+                setEditingProductId(null);
+                setShowForm(true);
               }
             }}
           >
