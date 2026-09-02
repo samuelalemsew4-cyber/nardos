@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:5000/api';
-export const API_SERVER_URL = 'http://localhost:5000';
+const API_SERVER_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_BASE_URL = `${API_SERVER_URL}/api`;
+export { API_SERVER_URL };
 
 export const getImageUrl = (image) => {
   if (!image) return 'https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=600&auto=format&fit=crop';
