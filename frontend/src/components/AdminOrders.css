@@ -1,0 +1,205 @@
+.admin-orders {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.orders-header {
+  margin-bottom: 30px;
+}
+
+.orders-header h1 {
+  margin: 0 0 20px 0;
+  color: #333;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: #667eea;
+}
+
+.orders-table-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table thead {
+  background: #f5f5f5;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.orders-table th {
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.orders-table td {
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 14px;
+  color: #666;
+}
+
+.orders-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.order-id {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.amount {
+  font-weight: 600;
+  color: #43e97b;
+}
+
+.status-select {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  background: white;
+}
+
+.status-select.pending {
+  border-color: #ffc107;
+  color: #f57f17;
+}
+
+.status-select.processing {
+  border-color: #2196f3;
+  color: #1565c0;
+}
+
+.status-select.shipped {
+  border-color: #2196f3;
+  color: #1565c0;
+}
+
+.status-select.delivered {
+  border-color: #4caf50;
+  color: #2e7d32;
+}
+
+.status-select.cancelled {
+  border-color: #f44336;
+  color: #c62828;
+}
+
+.view-btn {
+  padding: 6px 12px;
+  background: #e3f2fd;
+  color: #1976d2;
+  border: 1px solid #1976d2;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+  background: #1976d2;
+  color: white;
+}
+
+.no-data {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+  background: white;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.order-modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 20;
+}
+
+.order-modal {
+  width: min(500px, 100%);
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.order-modal h2 {
+  margin-top: 0;
+}
+
+.order-modal button {
+  margin: 12px 8px 0 0;
+  padding: 9px 14px;
+  border: 0;
+  border-radius: 4px;
+  background: #d4af37;
+  cursor: pointer;
+}
+
+.orders-loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 16px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .filter-buttons {
+    gap: 5px;
+  }
+
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .orders-table {
+    font-size: 12px;
+  }
+
+  .orders-table th,
+  .orders-table td {
+    padding: 10px;
+  }
+}

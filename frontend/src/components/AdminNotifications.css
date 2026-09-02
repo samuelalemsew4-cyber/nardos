@@ -1,0 +1,264 @@
+/* AdminNotifications.css */
+
+.admin-notifications {
+  position: relative;
+}
+
+.notification-bell {
+  position: relative;
+}
+
+.notification-btn {
+  position: relative;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: transform 0.2s ease;
+}
+
+.notification-btn:hover {
+  transform: scale(1.1);
+}
+
+.notification-btn .badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #fa709a;
+  color: white;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Notification Dropdown */
+.notification-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 400px;
+  max-height: 500px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.notification-header {
+  padding: 16px;
+  border-bottom: 2px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.mark-all-btn {
+  background: none;
+  border: none;
+  color: #667eea;
+  cursor: pointer;
+  font-size: 12px;
+  text-decoration: underline;
+  padding: 4px 8px;
+  transition: color 0.2s ease;
+}
+
+.mark-all-btn:hover {
+  color: #764ba2;
+}
+
+/* Notification List */
+.notification-list {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 350px;
+}
+
+.notification-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.notification-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.notification-list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.notification-list::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* Notification Item */
+.notification-item {
+  padding: 12px 16px;
+  border-left: 4px solid #667eea;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  gap: 12px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.notification-item:hover {
+  background-color: #f9f9f9;
+}
+
+.notification-item.unread {
+  background-color: #f0f4ff;
+  font-weight: 500;
+}
+
+.notification-item.read {
+  opacity: 0.8;
+}
+
+.notification-icon {
+  font-size: 24px;
+  min-width: 30px;
+  text-align: center;
+  line-height: 24px;
+}
+
+.notification-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-content h4 {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notification-content p {
+  margin: 0 0 4px 0;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.notification-content small {
+  font-size: 11px;
+  color: #999;
+  display: block;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.delete-btn:hover {
+  color: #fa709a;
+}
+
+/* Empty State */
+.empty-notifications {
+  padding: 40px 20px;
+  text-align: center;
+  color: #999;
+}
+
+.empty-notifications p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Notification Footer */
+.notification-footer {
+  padding: 12px 16px;
+  border-top: 2px solid #f0f0f0;
+  text-align: center;
+}
+
+.clear-all-btn {
+  background: none;
+  border: none;
+  color: #fa709a;
+  cursor: pointer;
+  font-size: 12px;
+  text-decoration: underline;
+  padding: 4px 8px;
+  transition: color 0.2s ease;
+}
+
+.clear-all-btn:hover {
+  color: #d63a5f;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .notification-dropdown {
+    width: calc(100vw - 32px);
+    max-width: 350px;
+    right: -16px;
+  }
+
+  .notification-list {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .notification-dropdown {
+    width: calc(100vw - 16px);
+    right: -8px;
+  }
+
+  .notification-item {
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .notification-content h4 {
+    font-size: 13px;
+  }
+
+  .notification-content p {
+    font-size: 12px;
+  }
+}
