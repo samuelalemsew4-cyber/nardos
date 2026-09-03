@@ -68,11 +68,11 @@ const AdminProducts = () => {
           });
 
       if (editingProductId) {
-        setProducts(products.map(product =>
+        setProducts(currentProducts => currentProducts.map(product =>
           product._id === editingProductId ? response.data.product : product
         ));
       } else {
-        setProducts([...products, response.data.product]);
+        setProducts(currentProducts => [...currentProducts, response.data.product]);
       }
 
       setFormData({
@@ -88,7 +88,9 @@ const AdminProducts = () => {
       setEditingProductId(null);
       setShowForm(false);
     } catch (err) {
-      alert(err.response?.data?.message || 'Failed to save product');
+      const message = err.response?.data?.message ||
+        (err.request ? 'Cannot connect to the server. Check the API URL and backend.' : err.message);
+      alert(message || 'Failed to save product');
     } finally {
       setSavingProduct(false);
     }
