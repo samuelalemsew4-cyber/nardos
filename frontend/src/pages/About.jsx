@@ -90,7 +90,7 @@ export default function About() {
               <strong>Phone:</strong> +251 98 833 8401
             </div>
             <div className="detail-item">
-              <strong>Email:</strong> info@nardosperfume.com
+              <strong>Email:</strong> samuelalemsew4@gmail.com
             </div>
             <div className="detail-item">
               <strong>Location:</strong> Zebit, Addis Ababa, Ethiopia

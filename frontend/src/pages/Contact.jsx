@@ -120,7 +120,7 @@ export default function Contact() {
             </div>
             <div className="info-item">
               <h3>✉️ Email</h3>
-              <p><a href="mailto:info@nardosperfume.com">info@nardosperfume.com</a></p>
+              <p><a href="mailto:samuelalemsew4@gmail.com">samuelalemsew4@gmail.com</a></p>
             </div>
             <div className="info-item">
               <h3>🕐 Business Hours</h3>

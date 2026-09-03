@@ -507,7 +507,7 @@ export default function Admin() {
                     <p><strong>Store Name:</strong> Nardos Perfume</p>
                     <p><strong>Location:</strong> Zebit, Addis Ababa, Ethiopia</p>
                     <p><strong>Phone:</strong> +251 988 338 401</p>
-                    <p><strong>Email:</strong> info@nardosperfume.com</p>
+                    <p><strong>Email:</strong> samuelalemsew4@gmail.com</p>
                     <p><strong>Telegram:</strong> @nati909091</p>
                   </div>
                 </div>
